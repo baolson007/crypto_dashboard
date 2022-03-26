@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import GetQuote from "./components/GetQuote";
+import Header from "./components/Layout/Header";
+import "./App.css";
+import RedditNews from "./components/RedditNews";
+import Dropdown from "./UI/Dropdown";
 
 function App() {
+  const [cryptoChoice, setCryptoChoice] = useState("Ethereum");
+
+  const dropdownHandler = (event) => {
+    setCryptoChoice(event.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header crypto={cryptoChoice} />
+      <GetQuote crypto={cryptoChoice} />
+      <Dropdown dropdownHandler={dropdownHandler} />
+
+      <RedditNews subreddit={cryptoChoice} />
     </div>
   );
 }
