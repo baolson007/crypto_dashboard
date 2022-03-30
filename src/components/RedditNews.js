@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
 import Post from "./Post";
+import classes from "./RedditNews.module.css";
 
 const RedditNews = (props) => {
   const [posts, setPosts] = useState([]);
@@ -10,27 +11,26 @@ const RedditNews = (props) => {
   useEffect(() => {
     const getPosts = async () => {
       const response = await axios.get(url);
-      //console.log(response);
       setPosts(response.data.data.children.map((post) => post.data));
     };
     getPosts();
+    //console.log(posts);
   }, [url, setPosts]);
 
-  //   <li key={post.id}>
-  //   <a href={`https://www.reddit.com/${post.permalink}`}>{post.title}</a>
-  // </li>
-
   return (
-    <ul>
-      {posts.map((post) => (
-        <Post
-          key={post.id}
-          postURL={post.permalink}
-          title={post.title}
-          author={post.author}
-        />
-      ))}
-    </ul>
+    <Fragment>
+      <h2>Reddit r/{props.subreddit} News</h2>
+      <ul>
+        {posts.map((post) => (
+          <Post
+            key={post.id}
+            postURL={post.permalink}
+            title={post.title}
+            author={post.author}
+          />
+        ))}
+      </ul>
+    </Fragment>
   );
 };
 

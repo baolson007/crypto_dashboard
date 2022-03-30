@@ -1,4 +1,18 @@
 select {
+  text-align: center;
+  margin: 1em;
   background-color: black;
   color: greenyellow;
+  height: 3em;
+  width: 10rem;
+  padding: 5px 5px;
+  border-radius: 15px;
+  transition: background-color, 200ms;
+}
+
+select:hover,
+select:active {
+  background-color: darkolivegreen;
+  justify-content: center;
+  transition: background-color, 200ms;
 }

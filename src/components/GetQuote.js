@@ -13,14 +13,23 @@ const GetQuote = (props) => {
   //and to provide initial price quote (without setInterval delay)
   const fetchQuote = useCallback(async () => {
     const res = await axios.get(
-      `https://data.messari.io/api/v1/assets/${props.crypto}/metrics`
+      // `https://data.messari.io/api/v1/assets/${props.crypto}/metrics`
+      `https://api.coingecko.com/api/v3/simple/price?ids=${props.crypto}&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true`
     );
+
+    let cryptoPrice = null;
+    let cryptoChange = null;
+    if (props.crypto === "ethereum") {
+      cryptoPrice = `$${res.data.ethereum.usd.toLocaleString()}`;
+      cryptoChange = res.data.ethereum.usd_24hr_change;
+    } else {
+      cryptoPrice = `$${res.data.bitcoin.usd.toLocaleString()}`;
+      cryptoChange = res.data.bitcoin.usd_24hr_change;
+    }
+
     const priceObject = {
-      timestamp: res.data.status.timestamp,
-      price: `$${res.data.data.market_data.price_usd.toFixed(2)}`,
-      key: res.data.status.timestamp,
-      percentChangeLast24Hours:
-        res.data.data.market_data.percent_change_usd_last_24_hours,
+      price: cryptoPrice,
+      percentChangeLast24Hours: cryptoChange,
     };
     setPrice(priceObject);
   }, [props.crypto]);
@@ -29,9 +38,8 @@ const GetQuote = (props) => {
   useEffect(() => {
     fetchQuote();
     const interval = setInterval(() => {
-      console.log("in set interval");
       fetchQuote();
-    }, 5000);
+    }, 60000);
 
     return () => clearInterval(interval);
   }, [props.crypto, fetchQuote]);
@@ -47,12 +55,16 @@ const GetQuote = (props) => {
   }, [price.percentChangeLast24Hours]);
 
   // Rendering logic helpers
-  const increasingQuote = <h1 className={classes.green}>{price.price}</h1>;
-  const decreasingQuote = <h1 className={classes.red}>{price.price}</h1>;
+  const increasingQuote = <p className={classes.green}>{price.price}</p>;
+  const decreasingQuote = <p className={classes.red}>{price.price}</p>;
 
   const quote = isPriceIncreasing ? increasingQuote : decreasingQuote;
 
-  return <React.Fragment>{quote}</React.Fragment>;
+  return (
+    <React.Fragment>
+      <span> Current Price: {quote}</span>
+    </React.Fragment>
+  );
 };
 
 export default GetQuote;

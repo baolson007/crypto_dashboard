@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-width: 300px;
   max-width: 650px;
   border-radius: 10px;
   margin: auto;
@@ -10,7 +11,15 @@
   border: solid 2px black;
 }
 
+a {
+  text-decoration: none;
+}
+.title {
+  color: #fefae0;
+}
+
 .author {
   font-size: smaller;
   font-style: italic;
+  color: #606c38;
 }

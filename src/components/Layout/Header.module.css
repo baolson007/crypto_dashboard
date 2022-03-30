@@ -1,0 +1,11 @@
+h1 {
+  color: #fefae0;
+  margin-top: 0px;
+  padding: 5px;
+}
+
+header {
+  background-image: url("../../assets/headerDark.jpg");
+  background-size: cover;
+  min-height: 4em;
+}

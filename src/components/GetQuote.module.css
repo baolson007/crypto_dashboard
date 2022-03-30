@@ -1,7 +1,22 @@
+span {
+  display: block;
+  justify-content: center;
+  font-size: larger;
+  color: #dda15e;
+  padding-top: 1em;
+}
+
+p {
+  margin: 1em;
+}
 .green {
+  margin: 0em 0em;
+  font-size: xx-large;
   color: green;
 }
 
 .red {
+  margin: 0em 0em;
+  font-size: xx-large;
   color: red;
 }

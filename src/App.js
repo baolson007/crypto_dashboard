@@ -11,13 +11,12 @@ function App() {
   const dropdownHandler = (event) => {
     setCryptoChoice(event.target.value);
   };
-
+  //
   return (
     <div className="App">
       <Header crypto={cryptoChoice} />
-      <GetQuote crypto={cryptoChoice} />
+      <GetQuote crypto={cryptoChoice.toLowerCase()} />
       <Dropdown dropdownHandler={dropdownHandler} />
-
       <RedditNews subreddit={cryptoChoice} />
     </div>
   );

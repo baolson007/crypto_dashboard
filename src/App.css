@@ -1,4 +1,6 @@
 .App {
   text-align: center;
-  /* background-image: url("./assets/blockchainBackground.jpg"); */
+  background-image: url("./assets/abstractRibbon.jpg");
+  background-size: contain;
+  background-attachment: fixed;
 }
