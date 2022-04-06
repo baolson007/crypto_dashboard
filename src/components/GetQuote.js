@@ -62,9 +62,9 @@ const GetQuote = (props) => {
   const quote = isPriceIncreasing ? increasingQuote : decreasingQuote;
 
   return (
-    <Card className={classes["quote_view"]}>
+    <React.Fragment>
       <span> Current Price: {quote}</span>
-    </Card>
+    </React.Fragment>
   );
 };
 

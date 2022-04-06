@@ -2,7 +2,13 @@ span {
   display: block;
   justify-content: center;
   font-size: larger;
-  color: #1f1d1b;
+  color: #181614;
+  background-color: rgb(199, 198, 198);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 350px;
+  border-radius: 1em 0em 1em 0em;
+  margin-top: 1em;
 }
 
 p {
@@ -18,9 +24,4 @@ p {
   margin: 0em 0em;
   font-size: xx-large;
   color: red;
-}
-
-.quote_view {
-  background-color: rgba(223, 215, 215, 0.8);
-  max-width: 350px;
 }
