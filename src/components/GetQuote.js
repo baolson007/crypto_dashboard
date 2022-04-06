@@ -62,7 +62,7 @@ const GetQuote = (props) => {
   const quote = isPriceIncreasing ? increasingQuote : decreasingQuote;
 
   return (
-    <Card className={classes.quote_view}>
+    <Card className={classes["quote_view"]}>
       <span> Current Price: {quote}</span>
     </Card>
   );
