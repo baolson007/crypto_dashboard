@@ -1,5 +1,5 @@
 .card {
-  padding: 1rem;
+  padding: 1rem 1rem;
   box-shadow: 0 2px 4px rgba(73, 124, 85, 0.25);
   border-radius: 14px;
   background-color: rgba(19, 29, 16, 0.2);
@@ -11,7 +11,7 @@
   max-width: 600px;
 }
 
-.card:hover {
+/* .card:hover {
   box-shadow: 0 2px 8px rgba(104, 177, 121, 0.25);
   transform: translateY(-1px);
-}
+} */

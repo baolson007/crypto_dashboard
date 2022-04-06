@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 import classes from "./GetQuote.module.css";
+import Card from "../UI/Card";
 
 const GetQuote = (props) => {
   const [price, setPrice] = useState("0");
@@ -61,9 +62,9 @@ const GetQuote = (props) => {
   const quote = isPriceIncreasing ? increasingQuote : decreasingQuote;
 
   return (
-    <React.Fragment>
+    <Card className={classes.quote_view}>
       <span> Current Price: {quote}</span>
-    </React.Fragment>
+    </Card>
   );
 };
 

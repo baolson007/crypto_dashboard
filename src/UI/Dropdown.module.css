@@ -1,7 +1,8 @@
 select {
   text-align: center;
+  font-size: large;
   margin: 1em;
-  background-color: black;
+  background-color: rgb(94, 94, 94);
   color: greenyellow;
   height: 3em;
   width: 10rem;

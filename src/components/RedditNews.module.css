@@ -6,3 +6,7 @@ ul {
 h2 {
   color: rgb(35, 93, 201);
 }
+
+.card {
+  background: rgba(255, 224, 182, 0.85);
+}

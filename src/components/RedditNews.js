@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
-
+import Card from "../UI/Card";
 import Post from "./Post";
 import classes from "./RedditNews.module.css";
 
@@ -18,7 +18,7 @@ const RedditNews = (props) => {
   }, [url, setPosts]);
 
   return (
-    <Fragment>
+    <Card className={classes.card}>
       <h2>Reddit r/{props.subreddit} News</h2>
       <ul>
         {posts.map((post) => (
@@ -30,7 +30,7 @@ const RedditNews = (props) => {
           />
         ))}
       </ul>
-    </Fragment>
+    </Card>
   );
 };
 
